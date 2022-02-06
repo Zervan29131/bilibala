@@ -6,8 +6,9 @@
 
 ## Enable
 
+Modify theme setting in _config.yml 
+
 ```
-Modify theme setting in _config.yml to ayer
 theme: bilibala
 ```
 
