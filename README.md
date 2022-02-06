@@ -1,240 +1,340 @@
-```shell
-npm i hexo-theme-ayer -S
-```
+# 一个基于`ayer`创造的Hexo站点模板
 
-- If this theme is newly installed, a `_config.ayer.yml` file will be generated in the root directory after the installation is complete, and you can directly edit the `_config.ayer.yml` file for configuration.
-- If it is a theme upgrade, you can use the configuration method of hexo < 5.0, or you can move the original configuration file to the root directory and rename it to `_config.ayer.yml`.
+本博客站点模板模仿了`hexo-ayer`主题，进行了完全的去`ayer`化操作，不允许商用，不建议大家进行使用，仅供大家学习和参考，如有侵权请联系站长，邮箱nickmechlin01@outlook.com
 
-### For hexo < 5.0
-
-```shell
-git clone https://github.com/Shen-Yu/hexo-theme-ayer.git themes/ayer
-```
+## 安装
 
 ## Enable
 
-Modify `theme` setting in `_config.yml` to `ayer`
-
-```yml
-theme: ayer
+```
+Modify theme setting in _config.yml to ayer
+theme: bilibala
 ```
 
-## Update
+## 多语言支持
 
-```bash
-cd themes/ayer
-git pull
+zh-CN（中文简体） en（English） zh-TW（中文繁体） ja（日本语） es（Español） de（Deutsch） fr（Français） ru（Русский） ko（한국어） vi（Tiếng Việt） nl（ Nederlands） no（norsk） pt（葡萄牙语）
+
+英文是默认语言，如果要更改，请修改您的Hexo博客根文件夹`language`中的文件中的选项。`_config.yml`
+
+## 配置
+
+如果您有任何问题，请告诉我。
+
 ```
+# Site
+title: Zervan的小站
+# subtitle: 'Stay hungry, stay foolish'
+description: 'Zervan'
+keywords: Zervan
+author: Zervan
+language: zh-CN
+timezone: 'asia/shanghai'
 
-## Multi Language Support
+## 主题
+theme: bilibala
 
-zh-CN（中文简体） en（English） zh-TW（中文繁体） ja（日本語） es（Español） de（Deutsch） fr（Français） ru（Русский） ko（한국어） vi（Tiếng Việt） nl（Nederlands） no（norsk） pt（Português）
-
-English is default languge, if you want to change, modify `language` option in `_config.yml` file in your Hexo blog's root folder.
-
-## Configuration
-
-let me know if you have any questions.
-
-```yml
-# Menu-Sidebar
-menu:
-  Home: /
-  Archives: /archives
-  Categories: /categories
-  Tags: /tags
-  Gallery: http://shenyu-vip.lofter.com
-  Travel: /tags/旅行/
-  About: /2019/about
-
-# Subtitle and Typing animation
+# 站点副标题和打字动效
 # https://github.com/mattboldt/typed.js
-subtitle:
+subtitle: 
+  enable: true # 是否开启动效
+  text: 你好! ~~ # 显示的文字
+  text2: 这里是Zervan的博客! # 滚动播放，如果不需要可以留空
+  text3: 又一个码农的家... # 最多支持三段文字
+  startDelay: 0 # 延迟时间
+  typeSpeed: 200 # 打字速度
+  loop: true # 是否循环
+  backSpeed: 100 # 回退速度
+  showCursor: true # 是否显示光标
+
+# URL
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: https://zervan.cn
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+## 收藏_dir
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# 侧边栏菜单
+menu:
+  主页: /
+  归档: /archives
+  分类: /categories
+  标签: /tags
+  旅行: /
+  摄影: /photo
+  友链: /
+  关于我: /about
+  播放器: /
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link:
+  enable: true # Open external links in new tab
+  field: site # Apply to the whole site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
   enable: true
-  text: A clean and elegant theme
-  text2: It's perfect for your hexo blog
-  text3: Have fun! #Supports up to three lines of text
-  startDelay: 0
-  typeSpeed: 200
-  loop: true
-  backSpeed: 100
-  showCursor: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
 
-# Favicon and sidebar logo
-favicon: /favicon.ico
-logo: /images/ayer-side.svg
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
 
-# Cover Setting
-# enable: [true|false]；path: [background-image]；logo: [cover-logo-image]
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Metadata elements
+## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+meta_generator: true
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Include / Exclude file(s)
+## include:/exclude: options only apply to the 'source/' folder
+include:
+exclude:
+ignore:
+
+
+# Deployment
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
+
+
+
+# 网站图标和侧边栏logo
+favicon: /images/favicon.ico
+logo: /images/console.svg
+
+# 封面配置
+# enable-是否启用封面；path-封面背景图；logo-封面logo
 cover:
   enable: true
-  path: /images/cover1.jpg # there are some beautiful cover images in Ayer's directory: /source/images, choose your favorite image to replace it.
-  logo: /images/ayer.svg
+  path: /images/cover.jpg # /source/images目录下的壁纸
+  logo: /images/console.svg # 如果不要直接设置成false
 
-# ProgressBar
+# 页面顶部进度条
 progressBar: true
 
-# Boardcast
+# 告示板模块
 broadcast:
-  enable: true
-  type: 2 # 1：custom，2：hitokoto api(https://hitokoto.cn/)
-  text: a clean and elegant theme, fast and responsive. # only work in custom mode
+  enable: true # true开启，false关闭
+  type: 1 # 1：自定义输入，2：一言api(https://hitokoto.cn/)
+  text: Stay hungry, stay foolish # type为1时有效
 
-# Article Setting
-# (Use this to excerpt if article is too long：<!--more-->)
-excerpt_link: Read More...
-excerpt_all: false
+# 文章配置
+# 文章太长，截断按钮文字(在需要截断的行增加此标记：<!--more-->)
+excerpt_link: 阅读更多...
+# 如果你嫌每篇文章手动加more标记比较麻烦，又不想在首页全文显示，可以把excerpt_all设置成true，这样首页只会显示文章归档
+excerpt_all: true
 
-# Copy code button
+# 是否开启代码复制按钮
 copy_btn: true
-# Share
+# 是否开启文章分享按钮
 share_enable: true
-# If you are not in China, maybe you prefer to set:false
+# 国内的社交平台(If you are not in China, maybe you prefer to set:false)
 share_china: true
-# share text
-share_text: Share
-# search text
-search_text: Search
-# nav text
-nav_text:
-  page_prev: Prev page
-  page_next: Next page
-  post_prev: Newer posts
-  post_next: Older posts
+# 文章分享文字
+share_text: 分享(除了微信扫一扫, 其他的都没啥用)
 
-# Catalog in article
+# 分页文字
+nav_text:
+  page_prev: 上一页
+  page_next: 下一页
+  post_prev: 上一篇
+  post_next: 下一篇
+
+# 文章页是否显示目录
 toc: true
 
-# images in the article support click to fullscreen
+# 文章中的图片是否支持点击放大
 image_viewer: true
 
 # https://github.com/willin/hexo-wordcount
+# 是否开启字数统计(关闭请设置enable为false)
+# 也可以单独在md文件里Front-matter设置`no_word_count: true`属性，来自定义关闭字数统计
 word_count:
   enable: true
-  # only display in article page(not in index page)
+  # 只在文章详情显示(不在首页显示)
   only_article_visit: true
 
-# Reward Setting
-# type：0-close reward； 1-only open in article which you have configured reward:true； 2-open in all articles
+# 打赏
+# 打赏type设定：0-关闭打赏； 1-文章对应的md文件里有reward:true属性，才有打赏； 2-默认开启所有文章均有打赏，如果有些文章你不需要，请在文章对应的md文件里设置no_reward:true
 reward_type: 2
-# reward word
-reward_wording: "Buy me a cup of coffee~"
-# qrcode image path
-alipay: /images/alipay.jpg
-# qrcode image path
-weixin: /images/wechat.jpg
+# 打赏wording
+reward_wording: "请我喝杯咖啡吧~"
+# 支付宝二维码图片地址
+alipay: /images/alipay.png
+# 微信二维码图片地址
+weixin: /images/weichat.png
 
-# Copyright
-# type：0-close all； 1-only display in article which you have configured copyright: true； 2-all articles
+# 版权声明
+# 版权声明type设定：0-关闭版权声明； 1-文章对应的md文件里有copyright: true属性，才有版权声明； 2-所有文章均有版权声明
 copyright_type: 2
 
-# Search
-# https://github.com/theme-next/hexo-generator-searchdb
+# 是否启用搜索
 search: true
 
-# RSS
-# leave it empty if you dont' need
-rss: /atom.xml
+# RSS订阅(先安装hexo-generator-feed插件，再去博客根目录config进行配置)
+# 不想显示可以直接留空
+rss:
 
-# DarkMode
+# 是否启用黑夜模式开关
 darkmode: true
 
-# Canvas background style: 0-close，1-moveline
+# 动态背景效果: 0-关闭，1-动态线条(跟随鼠标)
 canvas_bg: 0
 
-# Custom mouse pointer，replace /images/mouse.cur
+# 自定义鼠标样式，直接替换/images/mouse.cur文件
 mouse:
   enable: false
   path: /images/mouse.cur
 
-# Click effect: 0-close，1-love，2-boom，3-particles
+# 鼠标点击效果：0-关闭，1-爱心，2-爆炸烟花，3-粒子烟花
 click_effect: 0
 
-# articleWidth and sidebarWidth
+# 页面宽度自定义（不建议修改，可能造成布局混乱），article_width文章宽度，sidebar_width侧边栏宽度
 layout:
   article_width: 80rem
   sidebar_width: 8rem
 
-# GitHub Ribbons(https://github.blog/2008-12-19-github-ribbons/)
+# GitHub Ribbons-封面右上角的forkme，换样式直接在source/images目录下替换forkme图片
 github:
-  # (Set false if you don't need)
-  enable: false
-  url: https://github.com/Shen-Yu/hexo-theme-ayer
+  # (关闭请设置为false)
+  enable: true
+  url: https://github.com/Zervan29131/bilibala
 
-# pv&uv statistics
+# 网易云音乐插件
+music:
+  enable: true
+  # 播放器尺寸类型(1：小尺寸、2：大尺寸)
+  type: 2
+  id: 22707008 # 网易云分享的音乐ID(更换音乐请更改此配置项)
+  autoPlay: false # 是否开启自动播放
+
+# 访问量统计(不蒜子)
 busuanzi:
   enable: true
 
-# cnzz statistics
+# 友盟cnzz统计(url填js代码src链接)
 cnzz:
   enable: true
   url: #
 
-# Google Analytics
-google_analytics: ""
-# Baidu Analytics
-baidu_analytics: ""
-
-# Mathjax Support
+# Mathjax数学公式
 mathjax: true
 
-# Katex Support
-# note: need change the hexo-renderer，npm un hexo-renderer-marked -S && npm i hexo-renderer-markdown-it-katex -S
+# Katex数学公式(allpost设置为false时只有头部设置math:true的文章才开启)
+# 需要更换hexo渲染器，npm un hexo-renderer-marked -S && npm i hexo-renderer-markdown-it-katex -S
 katex:
   enable: false # true
   allpost: true
   copy_tex: false
 
-# since year
-since: 2019
+# mermaid流程图 三个选项缺一不可(https://mermaid-js.github.io/mermaid/#/)
+mermaid:
+  enable: false
+  cdn: https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js
+  theme: forest
 
-# only for chinese website
-# ICP
+# 网站成立年份(默认为 2019，若填入年份小于当前年份，则显示为 2018-2019 类似的格式)
+since: 2021-2022
+
+# ICP备案信息尾部显示
 icp:
   enable: false
-  url: "http://www.beian.miit.gov.cn/"
-  text: "浙ICP备88888888"
-# gongan
+  url: "http://www.beian.miit.gov.cn/" # 备案链接
+  text: "鲁ICP备88888888" # 备案信息
+# 公安备案信息尾部显示
 gongan:
-  enable: false
-  img: /images/beian.png
-  url: "http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=01234567890123" #link
-  text: "浙公网安备01234567890123号"
+  enable: true
+  img: /images/beian.png #公安备案图片
+  url: "http://www.beian.gov.cn/" #公安备案链接
+  text: "鲁ICP备2021036977号-1" #公安备案信息
 
-# friends link
+# 友情链接
 friends_link:
-  Ayer: #site name
-    # site url
-    url: https://github.com/Shen-Yu/hexo-theme-ayer
-    # site icon(optional)
-    img: /images/ayer.png
+  Thaumy: #网站名称
+    #网站地址
+    url: https://www.thaumy.cn
+    #网站图片(可忽略不写)
+    #img: /images/console.png
   GitHub:
-    url: https://github.com/Shen-Yu
+    url: https://github.com/zervan29131
     img: https://i.loli.net/2020/09/07/indb4PRYDA98EkN.png
-  gitee:
-    url: https://gitee.com/shen-yu
+  码云:
+    url: https://gitee.com/
     img: https://i.loli.net/2020/09/07/K3AqO7h6krQFlRX.png
-  Hexo:
+  Hexo官网:
     url: https://hexo.io
     img: https://i.loli.net/2020/09/07/UYGzjo7h68CRWny.png
-  hexo-tag-chart:
-    url: https://github.com/Shen-Yu/hexo-tag-chart
+  Hexo图表插件:
+    url: https://github.com/
     img: https://i.loli.net/2020/09/07/GIXBYE5SoylhR1r.png
 
-# Comment：1、Valine (recommended)；2、Gitalk；3、Twikoo；4、MiniValine
-# You can close the comment section on one of your posts by marking `comments: false` in front-matter.
 
-# 1、Valine [A fast, simple & powerful comment system](https://github.com/xCss/Valine)
-# You need create leancloud account first (https://console.leancloud.app), then put the id|key in below.
+# 评论：1、Valine(推荐)；2、Gitalk；3、Twikoo; 4.MiniValine
+
+# 1、Valine[一款快速、简洁且高效的无后端评论系统](https://github.com/xCss/Valine)
+# 启用Valine必须先创建leancloud应用， 获取 id|key 填入即可
 leancloud:
   enable: true
   app_id: #
   app_key: #
-# Valine Setting
+# Valine配置
 valine:
-  enable: true
-  avatar: mp # (https://valine.js.org/avatar.html)
-  placeholder: Add some comments to my article~ # placeholder
+  enable: true # 是否启用
+  avatar: monsterid # 头像样式(https://valine.js.org/avatar.html)
+  placeholder: 给我的文章加点评论吧~ # placeholder
 
 # 2、Gitalk(https://github.com/gitalk/gitalk)
 gitalk:
@@ -256,37 +356,37 @@ minivaline:
   enable: false
   serverURL: https://minivaline.your-domain.com
 
-# advertisement
-# if there is an "ad" word in photo or url，it may blocked by adblock or any other browser extensions
-ads:
-  ad_1:
-    title: vultr优惠vps
-    img: https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/vultr.png
-    url: https://www.vultr.com/?ref=8630075
-    width: 300
-  ad_2:
-    title: 云服务器全球购低至2折
-    img: https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/ten_2.jpg
-    url: https://curl.qcloud.com/kvO7hb43
-    width: 300
+# 首页广告配置
+# 可以根据需要自行增加ad_3，ad_4...，留空则不显示
+# ads:
+#   ad_1:
+#     title: vultr优惠vps
+#     img: https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/vultr.png
+#     url: https://www.vultr.com/?ref=8630075
+#     width: 300
+#   ad_2:
+#     title: 云服务器全球购低至2折
+#     img: https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/ad_2.jpg
+#     url: https://curl.qcloud.com/kvO7hb43
+#     width: 300
 
-# encrypt settings
+# 网站开启加密访问，密码可设置任何字符
 lock:
   enable: false
   password: 123456
 ```
 
-## Plugins
+## 插件
 
-- [hexo-generator-search](https://github.com/wzpan/hexo-generator-search) (for Local Search)
+- [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)（用于本地搜索）
 
-  ```yml
+  ```
   $ npm install hexo-generator-searchdb --save
   ```
 
-  Then add the plugin configuration in hexo's configuration file `_config.yml` (note: not the theme's configuration file):
+  然后在hexo的配置文件中添加插件配置`_config.yml`（注意：不是主题的配置文件）：
 
-  ```yml
+  ```
   # Hexo-generator-search
   search:
     path: search.xml
@@ -294,15 +394,15 @@ lock:
     format: html
   ```
 
-- [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed) (for RSS)
+- [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)（用于 RSS）
 
-  ```yml
+  ```
   $ npm install hexo-generator-feed --save
   ```
 
-  Then add the plugin configuration in hexo's configuration file `_config.yml` (note: not the theme's configuration file):
+  然后在hexo的配置文件中添加插件配置`_config.yml`（注意：不是主题的配置文件）：
 
-  ```yml
+  ```
   feed:m
       type: atom
       path: atom.xml
@@ -314,22 +414,22 @@ lock:
       order_by: -date
   ```
 
-- [hexo-generator-index-pin-top](https://github.com/netcan/hexo-generator-index-pin-top) (for Sticky Post)
+- [hexo-generator-index-pin-top](https://github.com/netcan/hexo-generator-index-pin-top)（用于 Sticky Post）
 
-  ```bash
+  ```
   $ npm uninstall hexo-generator-index --save
   $ npm install hexo-generator-index-pin-top --save
   ```
 
-## Categories
+## 类别
 
-```bash
-  hexo new page categories
+```
+  hexo新页面分类
 ```
 
-Then paste following codes to file: /source/categories/index.md
+然后将以下代码粘贴到文件中：/source/categories/index.md
 
-```md
+```
 ---
 title: categories
 type: categories
@@ -337,19 +437,19 @@ layout: "categories"
 ---
 ```
 
-## Tags
+## 标签
 
-Same as categories.
+与类别相同。
 
-## Friend Links
+## 朋友链接
 
-```bash
+```
 hexo new page friends
 ```
 
-Then paste following codes to file: /source/friends/index.md
+然后将以下代码粘贴到文件中：/source/friends/index.md
 
-```md
+```
 ---
 title: friends
 type: friends
@@ -357,13 +457,13 @@ layout: "friends"
 ---
 ```
 
-Then edit `friends_link` in `_config.yml`
+然后`friends_link`在里面编辑`_config.yml`
 
-## Gallery
+## 画廊
 
-Need to write in the head of the markdown, this is not a good way to write, I hope to get a better way to write on github.
+需要写在markdown的头部，这不是一个好的写法，希望能在github上得到更好的写法。
 
-```md
+```
 ---
 title: Gallery
 
@@ -371,51 +471,21 @@ albums: [["img_url", "img_caption"], ["img_url", "img_caption"]]
 ---
 ```
 
-## Toc
+## 目录
 
-Use Tocbot to parse the title tags (h1~h6) in the content and insert the directory.
+使用 Tocbot 解析内容中的标题标签（h1~h6）并插入目录。
 
-- ayer/\_config.yml
+- ayer/_config.yml
 
-  ```bash
+  ```
   # Toc
   toc: true
   ```
 
-- If Toc is turned on in ayer/\_config.yml, then Tocbot will generate a Toc article directory in the title tag of each blog parsing content, but not all blogs require Toc, so in the Front-matter section of markdown Can be closed:
+- 如果在ayer/_config.yml中开启了Toc，那么Tocbot会在每个博客解析内容的title标签中生成一个Toc文章目录，但并不是所有博客都需要Toc，所以在markdown的Front-matter部分可以关闭：
 
-  ```md
+  ```
   ---
   no_toc: true
   ---
   ```
-
----
-
-<br/>
-
-## Code Contributors
-
-This project exists thanks to all the people who contribute.
-
-<a href="https://github.com/Shen-Yu/hexo-theme-ayer/graphs/contributors"><img src="https://opencollective.com/ayer/contributors.svg?width=890&button=false" /></a>
-
-## Stargazers over time
-
-[![Stargazers over time](https://starchart.cc/Shen-Yu/hexo-theme-ayer.svg)](https://starchart.cc/Shen-Yu/hexo-theme-ayer)
-
-## License
-
-<a src="https://github.com/Shen-Yu/hexo-theme-ayer">Ayer</a> by <a  href="https://github.com/Shen-Yu">Eric-Shen</a> is licensed under <a rel="license" href="https://github.com/Shen-Yu/hexo-theme-ayer/blob/master/LICENSE">SATA-License</a>.
-
-The basic idea is, whenever using a project using SATA license, people shall star/like/+1 that project and thank the author. Just imagine Google stared your project and send you a thank-you letter because they used your project in github!
-<br>
-
-本项目采用<a rel="license" href="https://github.com/Shen-Yu/hexo-theme-ayer/blob/master/LICENSE">SATA</a>开源协议，在遵守 MIT 许可证的前提下，你应该马不停蹄的给这个开源项目“点个赞”，比如 github 右上角的 star，然后你应该感谢这个开源项目的作者，作者信息可以在许可证头部的版权声明部分找到。<br>
-
-下面是几条 SATA 作者推荐的感谢途径，也是 SATA 包含的内容：
-
-- 给你使用的开源项目的作者发个 Email，和他交个朋友
-- 提出你在使用过程中发现的 BUG 或者提一些建设性的意见
-- 告诉你的朋友们这是一个多棒的开源项目
-- 当然，你也可以只是在心里默默的感激，不用让全世界都知道
