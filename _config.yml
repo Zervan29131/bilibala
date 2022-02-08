@@ -1,3 +1,8 @@
+# Deployment 部署
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
+
 # Site
 title: Zervan的小站
 # subtitle: 'Stay hungry, stay foolish'
@@ -45,15 +50,15 @@ skip_render:
 
 # 侧边栏菜单
 menu:
-  主页: /
+  主页: https://zervan29131.github.io/ZervanBlog/
   归档: /archives
   分类: /categories
   标签: /tags
-  旅行: /
-  摄影: /photo
-  友链: /
+  旅行: /travel
+  摄影: /photos
+  友链: /friends
   关于我: /about
-  播放器: /
+  播放器: /music
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -119,16 +124,8 @@ include:
 exclude:
 ignore:
 
-
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''
-
-
-
 # 网站图标和侧边栏logo
-favicon: /images/favicon.ico
+favicon: /images/favicon.png
 logo: /images/console.svg
 
 # 封面配置

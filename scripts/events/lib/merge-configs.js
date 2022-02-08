@@ -12,16 +12,16 @@ module.exports = (hexo) => {
             hexo.config.theme_config
         );
         if (isZh) {
-            hexo.log.info("[Ayer] 读取 _config.yml 中 theme_config 配置项覆盖配置");
+            hexo.log.info("读取 _config.yml 中 theme_config 配置项覆盖配置");
         } else {
             hexo.log.info(
-                "[Ayer] Merge theme config from theme_config in _config.yml"
+                "Merge theme config from theme_config in _config.yml"
             );
         }
     }
 
     hexo.log.debug(
-        "[Ayer] Output theme config:\n",
+        "Output theme config:\n",
         JSON.stringify(hexo.theme.config, undefined, 2)
     );
 };

@@ -30,8 +30,17 @@
         }));
         const s = e(".content"),
             r = e(".sidebar");
-        e(".navbar-toggle").on("click", (() => { e(".content,.sidebar").addClass("anim"), s.toggleClass("on"), r.toggleClass("on") })), e("#reward-btn").on("click", (() => { e("#reward").fadeIn(150), e("#mask").fadeIn(150) })), e("#reward .close, #mask").on("click", (() => { e("#mask").fadeOut(100), e("#reward").fadeOut(100) })), 1 == sessionStorage.getItem("darkmode") ? (e("body").addClass("darkmode"), e("#todark i").removeClass("ri-moon-line").addClass("ri-sun-line")) : (e("body").removeClass("darkmode"), e("#todark i").removeClass("ri-sun-line").addClass("ri-moon-line")), e("#todark").on("click", (() => { 1 == sessionStorage.getItem("darkmode") ? (e("body").removeClass("darkmode"), e("#todark i").removeClass("ri-sun-line").addClass("ri-moon-line"), sessionStorage.removeItem("darkmode")) : (e("body").addClass("darkmode"), e("#todark i").removeClass("ri-moon-line").addClass("ri-sun-line"), sessionStorage.setItem("darkmode", 1)) }));
-        console.log("%c%s%c%s%c%s", "background-color: #49b1f5; color: #fff; padding: 8px; font-size: 14px;", "主题不错？⭐star 支持一下 ->", "background-color: #ffbca2; padding: 8px; font-size: 14px;", "https://github.com/Shen-Yu/hexo-theme-ayer", "background-color: #eaf8ff;", "\n\n     _ __   _______ _____    \n    / \\ \\ \\ / / ____|  _  \\  \n   / _ \\ \\ V /|  _| | |_) |  \n  / ___ \\ | | | |___|  _ <   \n /_/   \\_\\ _| |_____|_| \\__\\ \n")
+        e(".navbar-toggle").on("click", (() => { e(".content,.sidebar").addClass("anim"), s.toggleClass("on"), r.toggleClass("on") })),
+            e("#reward-btn").on("click", (() => { e("#reward").fadeIn(150), e("#mask").fadeIn(150) })),
+            e("#reward .close, #mask").on("click", (() => { e("#mask").fadeOut(100), e("#reward").fadeOut(100) })),
+            1 == sessionStorage.getItem("darkmode") ? (e("body").addClass("darkmode"), e("#todark i").removeClass("ri-moon-line").addClass("ri-sun-line")) : (e("body").removeClass("darkmode"),
+                e("#todark i").removeClass("ri-sun-line").addClass("ri-moon-line")), e("#todark").on("click", (() => {
+                1 == sessionStorage.getItem("darkmode") ? (e("body").removeClass("darkmode"), e("#todark i").removeClass("ri-sun-line").addClass("ri-moon-line"),
+                    sessionStorage.removeItem("darkmode")) : (e("body").addClass("darkmode"), e("#todark i").removeClass("ri-moon-line").addClass("ri-sun-line"), sessionStorage.setItem("darkmode", 1))
+            }));
+        console.log("%c%s%c%s%c%s", "background-color: #49b1f5; color: #fff; padding: 8px; font-size: 14px;",
+            "主题不错？⭐star 支持一下 ->", "background-color: #ffbca2; padding: 8px; font-size: 14px;", "https://github.com/Zervan29131/bilibili", "background-color: #eaf8ff;",
+            "\n\n     _ __   _______ _____    \n    / \\ \\ \\ / / ____|  _  \\  \n   / _ \\ \\ V /|  _| | |_) |  \n  / ___ \\ | | | |___|  _ <   \n /_/   \\_\\ _| |_____|_| \\__\\ \n")
     }(jQuery), e = { id: "JGjrOr2rebvP6q2a", ck: "JGjrOr2rebvP6q2a" },
         function(t) {
             var o = window,

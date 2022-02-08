@@ -1,6 +1,25 @@
 # 一个基于`ayer`创造的Hexo站点模板
 
+## 介绍
+
 本博客站点模板模仿了`hexo-ayer`主题，进行了完全的去`ayer`化操作，不允许商用，不建议大家进行使用，仅供大家学习和参考，如有侵权请联系站长，邮箱nickmechlin01@outlook.com
+
+## 特性
+
+1. 干净且优雅，文章内容美观易读
+2. 首页封面全屏平铺，扁平化设计，简洁又不失高大上
+3. 响应式设计，博客在桌面端、平板、手机等设备上均能很好的展现
+4. 时间轴式的归档页
+5. 支持 `黑夜阅读` 模式
+6. 侧边栏可以点击显示或隐藏
+7. 支持文章置顶和文章打赏
+8. 支持文章字数和阅读时长统计
+9. 支持网易云音乐播放
+10. 支持  `MathJax` 和 `Katex` 数学公式
+11. 支持 `Mermaid` 流程图、状态图、时序图、甘特图
+12. `TOC` 目录在文章页悬浮，跳转更方便
+13. 集成了博客加密访问的功能
+14. 支持评论功能（暂未开放）
 
 ## 安装
 
@@ -23,6 +42,11 @@ zh-CN（中文简体） en（English） zh-TW（中文繁体） ja（日本语�
 如果您有任何问题，请告诉我。
 
 ```
+# Deployment 部署
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+  type: ''
+
 # Site
 title: Zervan的小站
 # subtitle: 'Stay hungry, stay foolish'
@@ -70,15 +94,15 @@ skip_render:
 
 # 侧边栏菜单
 menu:
-  主页: /
+  主页: https://zervan29131.github.io/ZervanBlog/
   归档: /archives
   分类: /categories
   标签: /tags
-  旅行: /
-  摄影: /photo
-  友链: /
+  旅行: /travel
+  摄影: /photos
+  友链: /friends
   关于我: /about
-  播放器: /
+  播放器: /music
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -143,14 +167,6 @@ pagination_dir: page
 include:
 exclude:
 ignore:
-
-
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''
-
-
 
 # 网站图标和侧边栏logo
 favicon: /images/favicon.ico
@@ -422,6 +438,16 @@ lock:
   $ npm install hexo-generator-index-pin-top --save
   ```
 
+## 插件(可选)
+
+- [hexo-generator-index-pin-top](https://github.com/netcan/hexo-generator-index-pin-top) 用于文章置顶
+- [hexo-blog-encrypt](https://github.com/MikeCoder/hexo-blog-encrypt/blob/master/ReadMe.zh.md) 用于文章加密
+- [hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md) 用于播放音乐
+- [hexo-tag-dplayer](https://github.com/MoePlayer/hexo-tag-dplayer) 用于播放视频
+- [hexo-helper-live2d](https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md) 二次元看板娘
+
+更多插件请见 [hexo 插件市场](
+
 ## 类别
 
 ```
@@ -467,7 +493,6 @@ layout: "friends"
 ```
 ---
 title: Gallery
-
 albums: [["img_url", "img_caption"], ["img_url", "img_caption"]]
 ---
 ```
@@ -476,17 +501,52 @@ albums: [["img_url", "img_caption"], ["img_url", "img_caption"]]
 
 使用 Tocbot 解析内容中的标题标签（h1~h6）并插入目录。
 
-- ayer/_config.yml
+- 将以下配置复制到你主题目录下的 _config.yml
 
   ```
   # Toc
   toc: true
   ```
 
-- 如果在ayer/_config.yml中开启了Toc，那么Tocbot会在每个博客解析内容的title标签中生成一个Toc文章目录，但并不是所有博客都需要Toc，所以在markdown的Front-matter部分可以关闭：
+- 如果在_config.yml中开启了Toc，那么Tocbot会在每个博客解析内容的title标签中生成一个Toc文章目录，但并不是所有博客都需要Toc，所以在markdown的Front-matter部分可以关闭：
 
+  
+  
   ```
   ---
   no_toc: true
   ---
   ```
+
+
+
+## 引用图片
+
+> 插入图片的两种方法：
+
+1. 引用图床
+2. 引用本地图片。为了防止路径出错，建议使用图床。
+
+参照 [Hexo 文档](https://hexo.io/zh-cn/docs/asset-folders)，然后用这种方式引用图片：
+
+```
+{% asset_img image.jpg [title] %}
+```
+
+如果还是无法显示，请尝试在文章里用 html 的 img 标签来引用本地图片。
+
+## 查看文章的访问量
+
+在 ayer 的 config 配置里有 `busuanzi` 选项，默认设置为 `enable:true`，就开启了站点访问量的统计，站点尾部左下角的 `PV` 代表了当前页的访问次数，`UV` 代表了当前站点的访问人数。注意：不蒜子统计是根据当前域名来统计的，你在本地启动的时候由于是 localhost，所以数字会很大，部署到线上之后就会根据域名重新统计。
+
+## 网易云音乐播放
+
+这是由于网易云音乐对部分歌曲做了版权限制，你可以多换几首试试，配置文件里的默认歌曲 `潮鳴り` 是可以播放的。如果你动手能力强，也可以试试音乐播放插件 [hexo-tag-aplayer](https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md)，配合`MetingJS`可以支持对于 QQ 音乐、网易云、虾米、酷狗、百度等平台的音乐播放。
+
+## 分享链接
+
+你需要在 Hexo 博客目录下的 `_config.yml` 文件中把 url 配置成部署后的域名。
+
+## 让搜索引擎收录站点
+
+参考：[Hexo 站点 SEO 优化技巧](https://shen-yu.gitee.io/2020/hexo-seo)
