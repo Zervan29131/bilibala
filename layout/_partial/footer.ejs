@@ -1,0 +1,54 @@
+<footer class="footer">
+    <div class="outer">
+        <!-- 网站成立年份 -->
+        <ul>
+            <li>
+                Copyrights &copy;
+                <% if (theme.since && !isNaN(theme.since) && theme.since < date(new Date(), 'YYYY')) { %>
+                    <%- theme.since%>-
+                        <% } %>
+                            <%= date(new Date(), 'YYYY') %>
+                                <i class="ri-heart-fill heart_icon"></i>
+                                <%= config.author || config.title %>
+            </li>
+        </ul>
+        <%# "不蒜子统计" %>
+
+            <ul>
+                <li>
+                    <% if (theme.busuanzi && theme.busuanzi.enable){ %>
+                        <%- partial('post/busuanzi') %>
+                            <% } %>
+                </li>
+            </ul>
+            <!-- ICP备案信息尾部显示 -->
+            <ul>
+                <% if (theme.icp&&theme.icp.enable){ %>
+                    <li>
+                        <a href="<%= theme.icp.url %>" target="_black" rel="nofollow">
+                            <%= theme.icp.text %>
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+            <!-- 公安备案信息尾部显示 -->
+            <ul>
+                <% if (theme.gongan&&theme.gongan.enable){ %>
+                    <li>
+                        <img src="<%= theme.gongan.img %>"></img>
+                        <a href="<%= theme.gongan.url %>" target="_black" rel="nofollow">
+                            <%= theme.gongan.text %>
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+            <ul>
+                <li>
+                    <!-- cnzz统计 -->
+                    <% if (theme.cnzz&&theme.cnzz.enable){ %>
+                        <script type="text/javascript" src='<%= theme.cnzz.url%>'></script>
+                        <% } %>
+                </li>
+            </ul>
+    </div>
+</footer>
